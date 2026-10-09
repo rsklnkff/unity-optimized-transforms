@@ -43,3 +43,7 @@ Play back those commands **before `TransformSystemGroup`** so `ParentSystem` upd
 - Frequent reparenting adds structural work. Deep or mixed enabled/disabled hierarchies need particular care; depth-tag changes can take multiple frames to propagate.
 
 The intended workload is large hierarchies with mostly stable parent relationships. Measure it with your own hierarchy sizes and update patterns; no comparative benchmark results are included.
+
+## License
+
+[MIT](LICENSE).
