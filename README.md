@@ -38,7 +38,7 @@ Play back those commands **before `TransformSystemGroup`** so `ParentSystem` upd
 
 ## Current limitations
 
-- The updater requires an enabled entity with a `Child` buffer. A world containing only roots, or only disabled hierarchies, can stop updating transforms after the built-in system is disabled.
+- `RequireForUpdate<Child>()` needs at least one entity without `Disabled` carrying a `Child` buffer somewhere in the world. When that condition is met, the updater also handles standalone roots and disabled hierarchies. If no such entity exists after the built-in updater has been disabled, this system skips its entire update.
 - The queries currently declare `LocalToWorld` read-only when setting up `FilterWriteGroup`. Custom transform writers are therefore not reliably excluded and their results can be overwritten.
 - Frequent reparenting adds structural work. Deep or mixed enabled/disabled hierarchies need particular care; depth-tag changes can take multiple frames to propagate.
 
